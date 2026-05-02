@@ -116,7 +116,7 @@ export function NavbarSearch({ className }: { className?: string }) {
   }, []);
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("hidden sm:block relative", className)}>
       <Dialog open={open} onOpenChange={handleOpenChange}>
         <label htmlFor={navInputId} className="sr-only">
           Search pages

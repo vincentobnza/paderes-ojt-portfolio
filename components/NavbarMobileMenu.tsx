@@ -88,7 +88,7 @@ export function NavbarMobileMenu() {
         type="button"
         variant="outline"
         size="icon"
-        className="shrink-0 md:hidden"
+        className="shrink-0 md:hidden shadow-none! rounded-lg! border-0! size-4! mr-4!"
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label={open ? "Close menu" : "Open menu"}

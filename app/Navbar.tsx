@@ -19,7 +19,7 @@ export default function Navbar() {
     <header className="flex min-h-14 items-center justify-start sm:justify-between gap-3 border-b border-black/10 bg-white px-4 sm:h-14 sm:gap-4 sm:px-6">
       <div className="flex items-center gap-3 md:gap-10 lg:gap-20">
         <NavbarMobileMenu />
-        <span className="hidden md:flex truncate text-xs font-semibold tracking-tight text-black sm:text-sm">
+        <span className="flex truncate text-xs font-semibold tracking-tight text-black sm:text-sm">
           PADERES PORTFOLIO
         </span>
 
