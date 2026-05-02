@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { AppendixPdfViewer } from "@/components/AppendixPdfViewer";
 import { ImageAlbum } from "@/components/ImageAlbum";
+import { APPENDIX_MEDIA } from "@/lib/appendix-assets";
 import { APPENDIX_TITLES } from "@/lib/appendix-titles";
-import { FALLBACK_IMAGE_SRC } from "@/lib/fallback-image";
 import { outlineSurface } from "@/lib/outline-surface";
 import { APPENDIX_LINKS, type AppendixLetter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,10 @@ const shortcutLinkClass = cn(
 export function AppendixDocContent({ letter }: { letter: AppendixLetter }) {
   const title = APPENDIX_TITLES[letter];
   const headingId = `appendix-${letter}-title`;
+  const media = APPENDIX_MEDIA[letter];
+  const hasPdfs = media.pdfs.length > 0;
+  const hasImages = media.images.length > 0;
+  const empty = !hasPdfs && !hasImages;
 
   return (
     <>
@@ -29,15 +34,38 @@ export function AppendixDocContent({ letter }: { letter: AppendixLetter }) {
         >
           {title}
         </h2>
-        <ImageAlbum
-          slides={[
-            {
-              src: FALLBACK_IMAGE_SRC,
-              alt: title,
-              caption: title,
-            },
-          ]}
-        />
+
+        <div className="flex flex-col gap-8">
+          {media.pdfs.map((src, i) => (
+            <AppendixPdfViewer
+              key={src}
+              src={src}
+              label={
+                media.pdfs.length > 1 ? `${title} (${i + 1})` : title
+              }
+            />
+          ))}
+          {hasImages ? <ImageAlbum slides={[...media.images]} /> : null}
+          {empty ? (
+            <p
+              className={cn(
+                outlineSurface,
+                "px-4 py-6 text-sm leading-relaxed text-black/70",
+              )}
+            >
+              No PDF or image files are configured for this appendix yet. Add
+              assets under{" "}
+              <code className="rounded-none bg-neutral-100 px-1 font-mono text-xs text-black">
+                public/appendix_{letter.toLowerCase()}
+              </code>{" "}
+              and register them in{" "}
+              <code className="rounded-none bg-neutral-100 px-1 font-mono text-xs text-black">
+                lib/appendix-assets.ts
+              </code>
+              .
+            </p>
+          ) : null}
+        </div>
       </section>
 
       <nav
