@@ -16,17 +16,20 @@ import {
 } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
 const linkClass = cn(
   "block rounded-md px-3 py-2.5 text-sm text-black active:bg-neutral-950/6 md:py-2 tracking-tight font-medium",
   "md:hover:bg-neutral-950/3 md:hover:text-black",
 );
+
+const activeLinkClass = "bg-neutral-100 font-semibold text-black";
 
 const triggerClass = cn(
   "flex w-full items-center gap-2 rounded-md px-3 py-2.5 text-left text-sm text-black outline-none md:py-2 tracking-tight font-medium",
   "md:hover:bg-neutral-950/3",
   "focus-visible:ring-2 focus-visible:ring-ring/50",
 );
+
+const activeTriggerClass = "bg-neutral-950/8 font-semibold";
 
 function SubNav({ children }: { children: ReactNode }) {
   return (
@@ -79,15 +82,31 @@ export function Sidebar() {
     prevPath.current = pathname;
   }, [pathname]);
 
+  const chapterActive = CHAPTER_LINKS.some((l) => l.href === pathname);
+  const appendixActive = APPENDIX_LINKS.some((l) => l.href === pathname);
+
   return (
-    <aside className="mt-6 sm:mt-8 hidden min-h-0 w-52 shrink-0 flex-col overflow-hidden border-r border-black/10 md:flex md:flex-col lg:w-56">
+    <aside className="pt-6 hidden min-h-0 w-52 shrink-0 flex-col overflow-hidden border-r border-black/10 md:flex md:flex-col lg:w-56">
+
+
+
+
+
       <nav className="flex min-h-0 flex-1 flex-col overflow-y-auto p-3 md:p-4">
         <NavGroup label="Portfolio">
-          {STATIC_LINKS.map((item) => (
-            <Link key={item.href} href={item.href} className={linkClass}>
-              {item.label}
-            </Link>
-          ))}
+          {STATIC_LINKS.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(linkClass, active && activeLinkClass)}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </NavGroup>
 
         <hr
@@ -101,7 +120,10 @@ export function Sidebar() {
             open={chaptersOpen}
             onOpenChange={setChaptersOpen}
           >
-            <CollapsibleTrigger className={triggerClass} type="button">
+            <CollapsibleTrigger
+              className={cn(triggerClass, chapterActive && activeTriggerClass)}
+              type="button"
+            >
               Chapters
               <svg
                 aria-hidden
@@ -116,11 +138,19 @@ export function Sidebar() {
             </CollapsibleTrigger>
             <CollapsibleContent>
               <SubNav>
-                {CHAPTER_LINKS.map((item) => (
-                  <Link key={item.href} href={item.href} className={linkClass}>
-                    {item.label}
-                  </Link>
-                ))}
+                {CHAPTER_LINKS.map((item) => {
+                  const active = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(linkClass, active && activeLinkClass)}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </SubNav>
             </CollapsibleContent>
           </Collapsible>
@@ -130,7 +160,10 @@ export function Sidebar() {
             open={appendicesOpen}
             onOpenChange={setAppendicesOpen}
           >
-            <CollapsibleTrigger className={triggerClass} type="button">
+            <CollapsibleTrigger
+              className={cn(triggerClass, appendixActive && activeTriggerClass)}
+              type="button"
+            >
               Appendices
               <svg
                 aria-hidden
@@ -145,11 +178,19 @@ export function Sidebar() {
             </CollapsibleTrigger>
             <CollapsibleContent>
               <SubNav>
-                {APPENDIX_LINKS.map((item) => (
-                  <Link key={item.href} href={item.href} className={linkClass}>
-                    {item.label}
-                  </Link>
-                ))}
+                {APPENDIX_LINKS.map((item) => {
+                  const active = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(linkClass, active && activeLinkClass)}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </SubNav>
             </CollapsibleContent>
           </Collapsible>

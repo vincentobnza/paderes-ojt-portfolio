@@ -28,7 +28,7 @@ export default function IntroductionPage() {
           Profile
         </p>
         <h1 className="mb-3 text-balance text-3xl font-semibold tracking-tight text-black sm:text-4xl">
-          Hello, I am Vincent Obenza{" "}
+          Hello, I am John Joseph T. Paderes{" "}
           <span className="inline-block" aria-hidden>
             👋
           </span>

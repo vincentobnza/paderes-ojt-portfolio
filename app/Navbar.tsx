@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { NavbarSearch } from "@/components/NavbarSearch";
+import { Button } from "@/components/ui/button";
 import { NAVBAR_TOP_LINKS } from "@/lib/navigation";
+import { SOCIAL_LINKS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const linkClass = cn(
@@ -12,32 +15,52 @@ const linkClass = cn(
 
 export default function Navbar() {
   return (
-    <header className="grid h-12 grid-cols-[1fr_auto_1fr] items-center gap-3 border-b border-black/10 bg-white px-4 sm:h-14 sm:gap-4 sm:px-6">
-      <div className="min-w-0 justify-self-start">
+    <header className="flex items-center justify-between gap-3 border-b border-black/10 bg-white px-4 sm:h-14 sm:gap-4 sm:px-6">
+      <div className="min-w-0 flex items-center gap-20">
         <span className="truncate text-xs font-semibold tracking-tight text-black sm:text-sm">
           PADERES PORTFOLIO
         </span>
+
+        <nav
+          aria-label="Quick links"
+          className="flex items-center justify-center gap-2 sm:gap-6"
+        >
+          {NAVBAR_TOP_LINKS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClass}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </div>
-
-      <nav
-        aria-label="Quick links"
-        className="flex items-center justify-center gap-6 sm:gap-10"
-      >
-        {NAVBAR_TOP_LINKS.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={linkClass}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-
-      <div className="justify-self-end">
+      <div className="flex items-center gap-2 sm:gap-3 md:gap-6 lg:gap-10">
         <NavbarSearch />
+        <nav aria-label="Social profiles" className="flex items-center gap-2">
+          {SOCIAL_LINKS.map((item) => (
+            <Button key={item.label} asChild variant="outline" size="icon" className="rounded-lg shadow-[2px_2px_0px_black]">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+              >
+                <Image
+                  src={item.icon}
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="size-5 grayscale hover:grayscale-0"
+                  unoptimized
+                />
+              </a>
+            </Button>
+          ))}
+        </nav>
       </div>
     </header>
   );
