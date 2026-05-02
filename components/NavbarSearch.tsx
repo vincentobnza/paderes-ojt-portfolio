@@ -56,10 +56,10 @@ export function NavbarSearch({ className }: { className?: string }) {
     const q = query.trim().toLowerCase();
     const items = q
       ? NAV_ITEMS.filter(
-          (item) =>
-            item.label.toLowerCase().includes(q) ||
-            item.href.toLowerCase().includes(q),
-        )
+        (item) =>
+          item.label.toLowerCase().includes(q) ||
+          item.href.toLowerCase().includes(q),
+      )
       : NAV_ITEMS;
     return items.slice(0, MAX_RESULTS);
   }, [query]);
@@ -134,9 +134,9 @@ export function NavbarSearch({ className }: { className?: string }) {
             aria-controls={open ? "site-search-panel" : undefined}
             className={cn(
               outlineSurfaceInput,
-              "box-border h-8 w-[min(100%,12rem)] py-0 pl-8 pr-14 text-xs font-medium leading-none tracking-tight text-black",
+              "box-border h-8 sm:h-9! w-[min(100%,12rem)] py-0 pl-8 pr-14 text-xs font-medium leading-none tracking-tight text-black",
               "placeholder:text-black/50",
-              "sm:h-9 sm:w-60 lg:w-80",
+              "sm:h-10 w-full sm:w-60 lg:w-80",
             )}
             onChange={(e) => syncQuery(e.target.value)}
             onFocus={() => setOpen(true)}

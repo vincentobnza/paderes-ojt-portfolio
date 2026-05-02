@@ -150,7 +150,7 @@ export function Chapter2Content() {
 
 
 
-      <section aria-labelledby="history-heading">
+      <section aria-labelledby="history-heading" className="mb-10">
         <h2
           id="history-heading"
           className="mb-4 text-xl font-semibold text-black sm:text-2xl"
@@ -176,7 +176,7 @@ export function Chapter2Content() {
       </section>
 
 
-      <section aria-labelledby="org-structure-heading" className="mb-10">
+      <section aria-labelledby="org-structure-heading">
         <h2
           id="org-structure-heading"
           className="mb-4 text-xl font-semibold text-black sm:text-2xl"

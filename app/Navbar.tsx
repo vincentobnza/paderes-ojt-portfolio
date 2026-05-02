@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { NavbarMobileMenu } from "@/components/NavbarMobileMenu";
 import { NavbarSearch } from "@/components/NavbarSearch";
 import { Button } from "@/components/ui/button";
 import { NAVBAR_TOP_LINKS } from "@/lib/navigation";
@@ -15,15 +16,16 @@ const linkClass = cn(
 
 export default function Navbar() {
   return (
-    <header className="flex items-center justify-between gap-3 border-b border-black/10 bg-white px-4 sm:h-14 sm:gap-4 sm:px-6">
-      <div className="min-w-0 flex items-center gap-20">
-        <span className="truncate text-xs font-semibold tracking-tight text-black sm:text-sm">
+    <header className="flex min-h-14 items-center justify-start sm:justify-between gap-3 border-b border-black/10 bg-white px-4 sm:h-14 sm:gap-4 sm:px-6">
+      <div className="flex items-center gap-3 md:gap-10 lg:gap-20">
+        <NavbarMobileMenu />
+        <span className="hidden md:flex truncate text-xs font-semibold tracking-tight text-black sm:text-sm">
           PADERES PORTFOLIO
         </span>
 
         <nav
           aria-label="Quick links"
-          className="flex items-center justify-center gap-2 sm:gap-6"
+          className="hidden items-center justify-center gap-2 sm:gap-6 md:flex"
         >
           {NAVBAR_TOP_LINKS.map((item) => (
             <a
@@ -40,7 +42,10 @@ export default function Navbar() {
       </div>
       <div className="flex items-center gap-2 sm:gap-3 md:gap-6 lg:gap-10">
         <NavbarSearch />
-        <nav aria-label="Social profiles" className="flex items-center gap-2">
+        <nav
+          aria-label="Social profiles"
+          className="hidden items-center gap-2 md:flex"
+        >
           {SOCIAL_LINKS.map((item) => (
             <Button key={item.label} asChild variant="outline" size="icon" className="rounded-lg shadow-[2px_2px_0px_black]">
               <a
