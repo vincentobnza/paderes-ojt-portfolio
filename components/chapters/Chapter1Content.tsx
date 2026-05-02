@@ -118,7 +118,7 @@ export function Chapter1Content() {
           Development, Monitoring, and Evaluation Office of Occidental Mindoro
           State College.
         </p>
-        <ul className="space-y-3 border border-black/10 bg-neutral-950/2 p-4 text-sm text-black sm:text-base">
+        <ul className="space-y-3 border border-black shadow-[4px_4px_0px_black] bg-lime-100 p-4 text-sm text-black sm:text-base font-bold">
           <li>
             <span className="font-semibold text-black">Role: </span>
             On-the-Job Trainee

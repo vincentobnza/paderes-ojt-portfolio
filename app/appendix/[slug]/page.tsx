@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { AppendixDocContent } from "@/components/AppendixDocContent";
+import { APPENDIX_TITLES } from "@/lib/appendix-titles";
 import { APPENDIX_LETTERS, type AppendixLetter } from "@/lib/navigation";
 
 function parseAppendix(slug: string): AppendixLetter | undefined {
@@ -7,6 +10,21 @@ function parseAppendix(slug: string): AppendixLetter | undefined {
 
 export function generateStaticParams(): { slug: string }[] {
   return APPENDIX_LETTERS.map((L) => ({ slug: L.toLowerCase() }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const letter = parseAppendix(slug);
+  if (letter === undefined) return {};
+  const title = APPENDIX_TITLES[letter];
+  return {
+    title: `Appendix ${letter} — ${title}`,
+    description: title,
+  };
 }
 
 export default async function AppendixPage({
@@ -20,10 +38,7 @@ export default async function AppendixPage({
 
   return (
     <article className="mx-auto max-w-2xl">
-      <h1 className="mb-6 text-3xl font-semibold tracking-tight text-neutral-950">
-        Appendix {letter}
-      </h1>
-      <p className="text-neutral-600">Content coming soon.</p>
+      <AppendixDocContent letter={letter} />
     </article>
   );
 }

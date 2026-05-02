@@ -80,7 +80,7 @@ export function Sidebar() {
   }, [pathname]);
 
   return (
-    <aside className="hidden min-h-0 w-52 shrink-0 flex-col overflow-hidden border-r border-black/10 md:flex md:flex-col lg:w-56">
+    <aside className="mt-6 sm:mt-8 hidden min-h-0 w-52 shrink-0 flex-col overflow-hidden border-r border-black/10 md:flex md:flex-col lg:w-56">
       <nav className="flex min-h-0 flex-1 flex-col overflow-y-auto p-3 md:p-4">
         <NavGroup label="Portfolio">
           {STATIC_LINKS.map((item) => (

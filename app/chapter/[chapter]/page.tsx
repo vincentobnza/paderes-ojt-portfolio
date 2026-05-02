@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Chapter1Content } from "@/components/chapters/Chapter1Content";
 import { Chapter2Content } from "@/components/chapters/Chapter2Content";
+import { Chapter3Content } from "@/components/chapters/Chapter3Content";
+import { Chapter4Content } from "@/components/chapters/Chapter4Content";
 import { CHAPTER_NUMBERS, type ChapterNumber } from "@/lib/navigation";
 
 function parseChapter(s: string): ChapterNumber | undefined {
@@ -36,6 +38,19 @@ export async function generateMetadata({
         "OMSC and the PDME office; mission, vision, goals, quality objectives, and history.",
     };
   }
+  if (n === 3) {
+    return {
+      title: "Chapter 3 — Reports & records",
+      description:
+        "Weekly accomplishment, daily time record, internship progress and analysis reports.",
+    };
+  }
+  if (n === 4) {
+    return {
+      title: "Chapter 4 — Student Internship Evaluation Form",
+      description: "Student internship evaluation form.",
+    };
+  }
   return {
     title: `Chapter ${n}`,
     description: `Portfolio chapter ${n}.`,
@@ -63,6 +78,22 @@ export default async function ChapterPage({
     return (
       <article className="mx-auto max-w-2xl">
         <Chapter2Content />
+      </article>
+    );
+  }
+
+  if (n === 3) {
+    return (
+      <article className="mx-auto max-w-2xl">
+        <Chapter3Content />
+      </article>
+    );
+  }
+
+  if (n === 4) {
+    return (
+      <article className="mx-auto max-w-2xl">
+        <Chapter4Content />
       </article>
     );
   }

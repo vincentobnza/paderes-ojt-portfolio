@@ -25,7 +25,6 @@ export const APPENDIX_LETTERS = [
 export type AppendixLetter = (typeof APPENDIX_LETTERS)[number];
 
 export type StaticNavPath =
-  | "/"
   | "/introduction"
   | "/table-of-contents"
   | "/acknowledgement"
@@ -52,9 +51,7 @@ export type StaticNavLink = {
 };
 
 export const STATIC_LINKS: readonly StaticNavLink[] = [
-  { label: "Home", href: "/" },
   { label: "Introduction", href: "/introduction" },
-  { label: "Table of Contents", href: "/table-of-contents" },
   { label: "Acknowledgement", href: "/acknowledgement" },
   { label: "STP", href: "/stp" },
   { label: "Personal Philosophy", href: "/personal-philosophy" },
@@ -63,8 +60,7 @@ export const STATIC_LINKS: readonly StaticNavLink[] = [
 
 /** Primary destinations for the top bar (subset of static routes). */
 export const NAVBAR_LINKS: readonly StaticNavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Introduction", href: "/introduction" },
+  { label: "Home", href: "/introduction" },
   { label: "Contents", href: "/table-of-contents" },
   { label: "STP", href: "/stp" },
   { label: "Philosophy", href: "/personal-philosophy" },
@@ -103,7 +99,7 @@ export const NAV_ITEMS: readonly NavLink[] = [
   ...APPENDIX_LINKS,
 ];
 
-export type ContentStaticPath = Exclude<StaticNavPath, "/">;
+export type ContentStaticPath = StaticNavPath;
 
 const STATIC_LABEL = new Map<StaticNavPath, string>(
   STATIC_LINKS.map((item) => [item.href, item.label]),

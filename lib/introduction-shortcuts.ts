@@ -12,7 +12,7 @@ export const INTRO_SHORTCUT_GROUPS: readonly IntroShortcutGroup[] = [
     title: null,
     links: [
       { label: "Table of Contents", href: "/table-of-contents" },
-      { label: "Title Page", href: "/" },
+      { label: "Title Page", href: "/introduction" },
       { label: "Acknowledgement", href: "/acknowledgement" },
       { label: "Student Trainee Prayer", href: "/stp" },
       { label: "Personal Philosophy", href: "/personal-philosophy" },

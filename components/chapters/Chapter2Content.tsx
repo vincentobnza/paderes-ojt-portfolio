@@ -148,24 +148,7 @@ export function Chapter2Content() {
         </ol>
       </section>
 
-      <section aria-labelledby="org-structure-heading" className="mb-10">
-        <h2
-          id="org-structure-heading"
-          className="mb-4 text-xl font-semibold text-black sm:text-2xl"
-        >
-          Organizational Structure
-        </h2>
-        <figure className="mx-auto max-w-full">
-          <Image
-            src="/organizational_structure.png"
-            alt="Organizational structure of Occidental Mindoro State College"
-            width={544}
-            height={336}
-            className="h-auto w-full rounded border border-black/10"
-            sizes="(max-width: 672px) 100vw, 672px"
-          />
-        </figure>
-      </section>
+
 
       <section aria-labelledby="history-heading">
         <h2
@@ -190,6 +173,26 @@ export function Chapter2Content() {
             decision-making across different offices of the college.
           </p>
         </div>
+      </section>
+
+
+      <section aria-labelledby="org-structure-heading" className="mb-10">
+        <h2
+          id="org-structure-heading"
+          className="mb-4 text-xl font-semibold text-black sm:text-2xl"
+        >
+          Organizational Structure
+        </h2>
+        <figure className="mx-auto max-w-full">
+          <Image
+            src="/organizational_structure.png"
+            alt="Organizational structure of Occidental Mindoro State College"
+            width={544}
+            height={336}
+            className="h-auto w-full rounded-none border border-black/10"
+            sizes="(max-width: 672px) 100vw, 672px"
+          />
+        </figure>
       </section>
     </>
   );
