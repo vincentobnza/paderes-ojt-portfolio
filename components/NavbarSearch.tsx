@@ -21,6 +21,7 @@ import { NAV_ITEMS } from "@/lib/navigation";
 import type { NavHref } from "@/lib/navigation";
 import { outlineSurface, outlineSurfaceInput } from "@/lib/outline-surface";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const MAX_RESULTS = 12;
 
@@ -240,9 +241,20 @@ export function NavbarSearch({ className }: { className?: string }) {
               )}
             >
               {displayed.length === 0 ? (
-                <li className="px-3 py-3 text-sm tracking-tight text-black/70">
-                  No matches
-                </li>
+                <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 items-center justify-center py-10 sm:py-20">
+                  <Image src="/no_data.png" alt="No matches" width={100} height={100} />
+                  <div className="space-y-1 text-center">
+                    <h2 className="text-lg sm:text-2xl font-bold tracking-tighter text-black">
+                      No matches
+                    </h2>
+                    <p className="text-sm tracking-tight text-black/70 font-medium">
+                      Try searching for something else.
+                    </p>
+                  </div>
+
+
+
+                </div>
               ) : (
                 displayed.map((item, i) => (
                   <li key={item.href} role="option" aria-selected={i === activeIdx}>
