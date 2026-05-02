@@ -1,4 +1,5 @@
 import Navbar from "@/app/Navbar";
+import { ShvtTheFvckUp } from "@/components/ShvtTheFvckUp";
 import { PrevNextNav } from "@/components/PrevNextNav";
 import { Sidebar } from "@/app/Sidebar";
 import { OnThisPage } from "@/app/OnThisPage";
@@ -39,6 +40,7 @@ function FadingRail({
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-dvh max-h-dvh flex-col overflow-hidden bg-white text-neutral-950">
+      <ShvtTheFvckUp />
       <Navbar />
       <div className="flex min-h-0 flex-1 overflow-hidden">
         <Sidebar />
