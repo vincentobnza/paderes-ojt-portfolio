@@ -57,6 +57,10 @@ export const APPENDIX_MEDIA: Record<AppendixLetter, AppendixMedia> = {
   N: { pdfs: [], images: [] },
   O: { pdfs: [], images: [] },
   P: { pdfs: [], images: [] },
-  Q: { pdfs: [], images: [] },
+  Q: {
+    pdfs: [
+      "/appendix_q/cv.pdf"
+    ], images: []
+  },
   R: { pdfs: [], images: [] },
 };

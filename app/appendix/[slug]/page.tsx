@@ -37,7 +37,7 @@ export default async function AppendixPage({
   if (letter === undefined) notFound();
 
   return (
-    <article className="mx-auto max-w-2xl">
+    <article className="w-full">
       <AppendixDocContent letter={letter} />
     </article>
   );

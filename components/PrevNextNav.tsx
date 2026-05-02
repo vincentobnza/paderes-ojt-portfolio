@@ -24,7 +24,7 @@ export function PrevNextNav() {
 
   const card = cn(
     outlineSurface,
-    "block p-4 transition-shadow hover:shadow-[6px_6px_0px_black] bg-neutral-10s0",
+    "block p-4 transition-shadow hover:shadow-[6px_6px_0px_black] bg-neutral-100",
   );
 
   return (
@@ -35,7 +35,7 @@ export function PrevNextNav() {
       <div className="min-w-0 flex-1">
         {prev ? (
           <Link href={prev.href} className={card}>
-            <span className="text-xs text-neutral-500">Previous</span>
+            <span className="text-xs text-neutral-900 font-semibold">Previous</span>
             <span className="mt-1 block font-medium text-neutral-950">{prev.label}</span>
           </Link>
         ) : null}
@@ -43,8 +43,8 @@ export function PrevNextNav() {
       <div className="min-w-0 flex-1">
         {next ? (
           <Link href={next.href} className={cn(card, "sm:text-right")}>
-            <span className="text-xs text-neutral-500">Next</span>
-            <span className="mt-1 block font-medium text-neutral-950">{next.label}</span>
+            <span className="text-xs text-neutral-900 font-semibold">Next</span>
+            <span className="mt-1 block font-bold tracking-tight text-neutral-950">{next.label}</span>
           </Link>
         ) : null}
       </div>

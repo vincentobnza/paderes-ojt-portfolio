@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function IntroductionPage() {
   return (
-    <article className="mx-auto max-w-2xl">
+    <article className="w-full">
       <header className="mb-12 border-b border-black/10 pb-12">
         <p className="mb-3 text-[11px] font-semibold uppercase text-black">
           Profile

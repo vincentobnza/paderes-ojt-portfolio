@@ -68,7 +68,7 @@ export default async function ChapterPage({
 
   if (n === 1) {
     return (
-      <article className="mx-auto max-w-2xl">
+      <article className="w-full">
         <Chapter1Content />
       </article>
     );
@@ -76,7 +76,7 @@ export default async function ChapterPage({
 
   if (n === 2) {
     return (
-      <article className="mx-auto max-w-2xl">
+      <article className="w-full">
         <Chapter2Content />
       </article>
     );
@@ -84,7 +84,7 @@ export default async function ChapterPage({
 
   if (n === 3) {
     return (
-      <article className="mx-auto max-w-2xl">
+      <article className="w-full">
         <Chapter3Content />
       </article>
     );
@@ -92,14 +92,14 @@ export default async function ChapterPage({
 
   if (n === 4) {
     return (
-      <article className="mx-auto max-w-2xl">
+      <article className="w-full">
         <Chapter4Content />
       </article>
     );
   }
 
   return (
-    <article className="mx-auto max-w-2xl">
+    <article className="w-full">
       <h1 className="mb-6 text-3xl font-semibold text-black">
         Chapter {n}
       </h1>
