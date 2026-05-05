@@ -42,7 +42,7 @@ export async function generateMetadata({
     return {
       title: "Chapter 3 — Reports & records",
       description:
-        "Weekly accomplishment, daily time record, internship progress and analysis reports.",
+        "Monthly Accomplishment Report, daily time record, internship progress and analysis reports.",
     };
   }
   if (n === 4) {

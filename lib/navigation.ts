@@ -1,7 +1,7 @@
 export const CHAPTER_NUMBERS = [1, 2, 3, 4] as const;
 export type ChapterNumber = (typeof CHAPTER_NUMBERS)[number];
 
-/** Appendix A through R (inclusive). */
+/** Appendix A through Q (inclusive). */
 export const APPENDIX_LETTERS = [
   "A",
   "B",
@@ -20,7 +20,6 @@ export const APPENDIX_LETTERS = [
   "O",
   "P",
   "Q",
-  "R",
 ] as const;
 export type AppendixLetter = (typeof APPENDIX_LETTERS)[number];
 

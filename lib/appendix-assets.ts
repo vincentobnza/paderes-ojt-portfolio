@@ -53,14 +53,80 @@ export const APPENDIX_MEDIA: Record<AppendixLetter, AppendixMedia> = {
   },
   K: { pdfs: [], images: [] },
   L: { pdfs: [], images: [] },
-  M: { pdfs: [], images: [] },
-  N: { pdfs: [], images: [] },
-  O: { pdfs: [], images: [] },
-  P: { pdfs: [], images: [] },
-  Q: {
-    pdfs: [
-      "/appendix_q/cv.pdf"
-    ], images: []
+  M: {
+    pdfs: [],
+    images: [
+      {
+        src: "/appendix_m/apm1.png",
+        alt: "Performance or proficiency rating sheet page 1",
+        caption: "Performance/Proficiency Rating Sheet (1)",
+      },
+      {
+        src: "/appendix_m/apm2.png",
+        alt: "Performance or proficiency rating sheet page 2",
+        caption: "Performance/Proficiency Rating Sheet (2)",
+      },
+      {
+        src: "/appendix_m/apm3.png",
+        alt: "Performance or proficiency rating sheet page 3",
+        caption: "Performance/Proficiency Rating Sheet (3)",
+      },
+      {
+        src: "/appendix_m/apm4.png",
+        alt: "Performance or proficiency rating sheet page 4",
+        caption: "Performance/Proficiency Rating Sheet (4)",
+      },
+      {
+        src: "/appendix_m/apm5.png",
+        alt: "Performance or proficiency rating sheet page 5",
+        caption: "Performance/Proficiency Rating Sheet (5)",
+      },
+    ],
   },
-  R: { pdfs: [], images: [] },
+  N: {
+    pdfs: [],
+    images: [
+      {
+        src: "/appendix_n/p1.png",
+        alt: "Pictures during office works 1",
+        caption: "Pictures During Office Works (1)",
+      },
+      {
+        src: "/appendix_n/p2.png",
+        alt: "Pictures during office works 2",
+        caption: "Pictures During Office Works (2)",
+      },
+      {
+        src: "/appendix_n/p3.png",
+        alt: "Pictures during office works 3",
+        caption: "Pictures During Office Works (3)",
+      },
+      {
+        src: "/appendix_n/p4.png",
+        alt: "Pictures during office works 4",
+        caption: "Pictures During Office Works (4)",
+      },
+      {
+        src: "/appendix_n/p5.png",
+        alt: "Pictures during office works 5",
+        caption: "Pictures During Office Works (5)",
+      },
+      {
+        src: "/appendix_n/p6.png",
+        alt: "Pictures during office works 6",
+        caption: "Pictures During Office Works (6)",
+      },
+      {
+        src: "/appendix_n/p7.png",
+        alt: "Pictures during office works 7",
+        caption: "Pictures During Office Works (7)",
+      },
+    ],
+  },
+  O: { pdfs: [], images: [] },
+  P: {
+    pdfs: ["/appendix_q/cv.pdf"],
+    images: [],
+  },
+  Q: { pdfs: [], images: [] },
 };
